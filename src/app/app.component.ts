@@ -1,3 +1,4 @@
+import { Contact } from './../model/contact';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Carnet d\'adresse';
+  
+  contact: Contact = {
+    name: 'Pierre',
+    email: 'pierre@example.com'
+  };
+
 }
