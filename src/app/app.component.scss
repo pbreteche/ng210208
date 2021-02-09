@@ -1,3 +1,6 @@
+@import '../variables';
+
 h1 {
     text-align: center;
+    background-color: $brand-color;
 }

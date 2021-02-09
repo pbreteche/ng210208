@@ -1,1 +1,9 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+    font-size: 24px;
+}
+
+.debug {
+    font: .75em monospace;
+    color: #ccc;
+    background-color: #111;
+}
