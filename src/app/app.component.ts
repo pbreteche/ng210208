@@ -1,3 +1,4 @@
+import { CONTACTS } from './../data/contacts';
 import { Contact } from './../model/contact';
 import { Component } from '@angular/core';
 
@@ -9,9 +10,6 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'Carnet d\'adresse';
   
-  contact: Contact = {
-    name: 'Pierre',
-    email: 'pierre@example.com'
-  };
+  contacts: Contact[] = CONTACTS;
 
 }
