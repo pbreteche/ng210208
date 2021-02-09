@@ -14,4 +14,7 @@ export class AppComponent {
 
   current: Contact = CONTACTS[0];
 
+  select(contact: Contact) {
+    this.current = contact;
+  }
 }

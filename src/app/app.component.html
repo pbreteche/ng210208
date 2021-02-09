@@ -2,7 +2,7 @@
 
 <ul>
   <li *ngFor="let contact of contacts">
-    {{ contact.name }}
+    <a (click)="select(contact)">{{ contact.name }}</a>
   </li>
 </ul>
 
