@@ -1,6 +1,6 @@
 import { CONTACTS } from './../data/contacts';
-import { Contact } from './../model/contact';
 import { Component } from '@angular/core';
+import { Contact } from './../model/contact';
 
 @Component({
   selector: 'app-root',
@@ -11,5 +11,7 @@ export class AppComponent {
   title = 'Carnet d\'adresse';
   
   contacts: Contact[] = CONTACTS;
+
+  current: Contact = CONTACTS[0];
 
 }

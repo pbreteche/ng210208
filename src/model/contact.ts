@@ -1,9 +1,9 @@
 export class Contact {
-    id: number;
+    id: number|null;
     name = '';
     email = '';
 
-    constructor(id: number) {
+    constructor(id: number|null = null) {
         this.id = id;
     }
 }
