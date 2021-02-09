@@ -9,12 +9,8 @@ import { Contact } from './../model/contact';
 })
 export class AppComponent {
   title = 'Carnet d\'adresse';
-  
-  contacts: Contact[] = CONTACTS;
+
 
   current: Contact = CONTACTS[0];
 
-  select(contact: Contact) {
-    this.current = contact;
-  }
 }

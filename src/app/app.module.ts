@@ -3,11 +3,13 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { ContactDetailComponent } from './contact-detail/contact-detail.component';
+import { ContactNavComponent } from './contact-nav/contact-nav.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ContactDetailComponent
+    ContactDetailComponent,
+    ContactNavComponent
   ],
   imports: [
     BrowserModule
