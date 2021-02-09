@@ -11,8 +11,10 @@ export class ContactNavComponent {
   @Output() onSelect = new EventEmitter<Contact>();
 
   contacts: Contact[] = CONTACTS;
+  selected: Contact = CONTACTS[0];
 
   select(contact: Contact) {
+    this.selected = contact;
     this.onSelect.emit(contact);
   }
 }

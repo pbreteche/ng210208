@@ -1,6 +1,10 @@
 
 a {
     cursor: pointer;
+
+    &.active {
+        background-color: #d33;
+    }
     
     &:hover {
         background-color: #dd3;
