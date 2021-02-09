@@ -1,6 +1,6 @@
 import { CONTACTS } from './../../data/contacts';
 import { Contact } from './../../model/contact';
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-contact-nav',
@@ -8,10 +8,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./contact-nav.component.scss']
 })
 export class ContactNavComponent {
-  
+  @Output() onSelect = new EventEmitter<Contact>();
+
   contacts: Contact[] = CONTACTS;
 
   select(contact: Contact) {
-  
+    this.onSelect.emit(contact);
   }
 }

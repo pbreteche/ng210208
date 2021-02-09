@@ -10,7 +10,9 @@ import { Contact } from './../model/contact';
 export class AppComponent {
   title = 'Carnet d\'adresse';
 
-
   current: Contact = CONTACTS[0];
 
+  setCurrent(contact: Contact) {
+    this.current = contact;
+  }
 }
