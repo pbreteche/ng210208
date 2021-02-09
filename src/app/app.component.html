@@ -6,9 +6,4 @@
   </li>
 </ul>
 
-<article>
-  <h2>{{ current.name }}</h2>
-  <p>{{ current.email }}</p>
-</article>
-
-<app-contact-detail></app-contact-detail>
+<app-contact-detail [contact]="current"></app-contact-detail>
