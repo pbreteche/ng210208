@@ -12,7 +12,7 @@
             Merci de saisir un email de contact
         </p>
         <p class="error" [hidden]="!emailModel.errors?.email  || emailModel.untouched">
-            Merci de saisir un email de contact
+            Ça ne ressemble pas à une adresse email
         </p>
         <label for="new-contact-email">Email</label>
         <input name="email" type="email" id="new-contact-email" [(ngModel)]="newContact.email"
@@ -20,4 +20,3 @@
     </div>
     <button [disabled]="form.invalid">Ajouter</button>
 </form>
-<p>{{ newContact | json }}</p>
