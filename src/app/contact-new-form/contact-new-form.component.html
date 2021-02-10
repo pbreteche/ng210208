@@ -1,11 +1,19 @@
 <form (ngSubmit)="add()" #form="ngForm">
     <div>
+        <p class="error" [hidden]="nameModel.valid || nameModel.untouched">
+            Merci de saisir un nom de contact
+        </p>
         <label for="new-contact-name">Nom</label>
-        <input name="name" id="new-contact-name" [(ngModel)]="newContact.name" required>
+        <input name="name" id="new-contact-name" [(ngModel)]="newContact.name" 
+            #nameModel="ngModel" required>
     </div>
     <div>
+        <p class="error" [hidden]="emailModel.valid || emailModel.untouched">
+            Merci de saisir un email de contact
+        </p>
         <label for="new-contact-email">Email</label>
-        <input name="email" id="new-contact-email" [(ngModel)]="newContact.email" required>
+        <input name="email" id="new-contact-email" [(ngModel)]="newContact.email"
+            #emailModel="ngModel" required>
     </div>
     <button [disabled]="form.invalid">Ajouter</button>
 </form>
