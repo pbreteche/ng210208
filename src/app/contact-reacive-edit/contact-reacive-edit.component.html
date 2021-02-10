@@ -1,0 +1,20 @@
+<form [formGroup]="editForm" (ngSubmit)="update()">
+    <div>
+        <p class="error" [hidden]="name?.valid || name?.untouched">
+            Merci de saisir un nom de contact
+        </p>
+        <label for="new-contact-name">Nom</label>
+        <input name="name" id="new-contact-name" required formControlName="name">
+    </div>
+    <div>
+        <p class="error" [hidden]="!email?.errors?.required || email?.untouched">
+            Merci de saisir un email de contact
+        </p>
+        <p class="error" [hidden]="!email?.errors?.email || email?.untouched">
+            Ça ne ressemble pas à une adresse email
+        </p>
+        <label for="new-contact-email">Email</label>
+        <input name="email" type="email" id="new-contact-email" formControlName="email">
+    </div>
+    <button [disabled]="!editForm.valid">Mettre à jour</button>
+</form>
