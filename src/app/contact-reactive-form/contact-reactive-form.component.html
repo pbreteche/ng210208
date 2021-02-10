@@ -16,5 +16,5 @@
         <label for="new-contact-email">Email</label>
         <input name="email" type="email" id="new-contact-email" formControlName="email">
     </div>
-    <button>Ajouter</button>
+    <button [disabled]="!createForm.valid">Ajouter</button>
 </form>
