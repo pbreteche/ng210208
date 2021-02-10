@@ -1,3 +1,4 @@
+import { ContactListService } from './../contact-list.service';
 import { CONTACTS } from './../../data/contacts';
 import { Contact } from './../../model/contact';
 import { Component } from '@angular/core';
@@ -11,8 +12,10 @@ export class ContactNewFormComponent {
 
   newContact: Contact = {id: null, name: '', email: ''};
 
+  constructor(private contactList: ContactListService) {}
+
   add(): void {
-    CONTACTS.push(this.newContact);
+    this.contactList.add(this.newContact);
     this.newContact = {id: null, name: '', email: ''};
   }
 }

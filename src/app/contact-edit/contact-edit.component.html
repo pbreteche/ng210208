@@ -1,4 +1,4 @@
-<form (ngSubmit)="update(); form.reset()" #form="ngForm">
+<form *ngIf="contact" (ngSubmit)="update(); form.reset()" #form="ngForm">
     <div>
         <p class="error" [hidden]="nameModel.valid || nameModel.untouched">
             Merci de saisir un nom de contact

@@ -1,4 +1,4 @@
-import { CONTACTS } from './../../data/contacts';
+import { ContactListService } from './../contact-list.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
@@ -22,13 +22,14 @@ export class ContactReaciveEditComponent implements OnInit {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private contactList: ContactListService
   ) {}
 
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe(map => {
       this.id = +(map.get('id') || 1);
-      this.editForm.reset(CONTACTS[this.id - 1]);
+      this.editForm.reset(this.contactList.find(this.id));
     });
   }
 
@@ -43,7 +44,7 @@ export class ContactReaciveEditComponent implements OnInit {
   update(): void {
     let contact = this.editForm.value;
     contact.id = this.id;
-    CONTACTS[this.id - 1] = contact;
+    this.contactList.update(this.id, contact);
     this.router.navigate(['/detail', contact.id]);
   }
 }

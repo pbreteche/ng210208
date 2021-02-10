@@ -1,4 +1,4 @@
-import { CONTACTS } from './../../data/contacts';
+import { ContactListService } from './../contact-list.service';
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms';
 
@@ -18,6 +18,8 @@ export class ContactReactiveFormComponent {
     ])
   });
 
+  constructor(private contactList: ContactListService) {}
+
   get name(): AbstractControl|null {
     return this.createForm.get('name');
   }
@@ -27,7 +29,7 @@ export class ContactReactiveFormComponent {
   }
 
   add(): void {
-    CONTACTS.push(this.createForm.value);
+    this.contactList.add(this.createForm.value);
     this.createForm.reset();
   }
 }

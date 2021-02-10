@@ -1,3 +1,4 @@
+import { ContactListService } from './../contact-list.service';
 import { CONTACTS } from './../../data/contacts';
 import { Contact } from './../../model/contact';
 import { Component, OnInit } from '@angular/core';
@@ -9,14 +10,17 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./contact-detail.component.scss']
 })
 export class ContactDetailComponent implements OnInit {
-  contact: Contact = CONTACTS[0];
+  contact: Contact|null = null;
 
-  constructor(private activatedRoute: ActivatedRoute) {}
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private contactList: ContactListService
+  ) {}
 
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe(map => {
       const id = +(map.get('id') || 1);
-      this.contact = CONTACTS[id - 1];
+      this.contact = this.contactList.find(id);
     });
   }
 }
