@@ -1,5 +1,6 @@
+import { CONTACTS } from './../../data/contacts';
 import { Contact } from './../../model/contact';
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-contact-detail',
@@ -7,6 +8,6 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./contact-detail.component.scss']
 })
 export class ContactDetailComponent {
-  @Input() contact: Contact|null = null;
+  contact: Contact = CONTACTS[0]; // temporary, we will get real contact from path
 
 }
