@@ -4,3 +4,19 @@ h1 {
     text-align: center;
     background-color: $brand-color;
 }
+
+nav {
+    background-color: lighten($brand-color, 80%);
+
+    ul {
+        list-style-type: none;
+        display: flex;
+        padding: 0;
+    }
+
+    a {
+        text-decoration: none;
+        display: block;
+        padding: .5em;
+    }
+}
