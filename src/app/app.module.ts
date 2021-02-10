@@ -8,6 +8,7 @@ import { ContactDetailComponent } from './contact-detail/contact-detail.componen
 import { ContactNavComponent } from './contact-nav/contact-nav.component';
 import { ContactNewFormComponent } from './contact-new-form/contact-new-form.component';
 import { ContactReactiveFormComponent } from './contact-reactive-form/contact-reactive-form.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { ContactReactiveFormComponent } from './contact-reactive-form/contact-re
     ContactDetailComponent,
     ContactNavComponent,
     ContactNewFormComponent,
-    ContactReactiveFormComponent
+    ContactReactiveFormComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
