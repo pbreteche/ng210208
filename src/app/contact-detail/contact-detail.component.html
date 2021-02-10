@@ -1,4 +1,8 @@
-<article>
-    <h2>{{ contact?.name }}</h2>
-    <p>{{ contact?.email }}</p>
+<article *ngIf="contact; else contactNotFound">
+    <h2>{{ contact.name }}</h2>
+    <p>{{ contact.email }}</p>
 </article>
+
+<ng-template #contactNotFound>
+    <p>Ce contact n'existe pas <a routerLink="/">Retour</a>.</p>
+</ng-template>
