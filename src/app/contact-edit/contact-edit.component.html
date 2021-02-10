@@ -1,0 +1,22 @@
+<form (ngSubmit)="update(); form.reset()" #form="ngForm">
+    <div>
+        <p class="error" [hidden]="nameModel.valid || nameModel.untouched">
+            Merci de saisir un nom de contact
+        </p>
+        <label for="new-contact-name">Nom</label>
+        <input name="name" id="new-contact-name" [(ngModel)]="contact.name" 
+            #nameModel="ngModel" required>
+    </div>
+    <div>
+        <p class="error" [hidden]="!emailModel.errors?.required || emailModel.untouched">
+            Merci de saisir un email de contact
+        </p>
+        <p class="error" [hidden]="!emailModel.errors?.email  || emailModel.untouched">
+            Ça ne ressemble pas à une adresse email
+        </p>
+        <label for="new-contact-email">Email</label>
+        <input name="email" type="email" id="new-contact-email" [(ngModel)]="contact.email"
+            #emailModel="ngModel" required email>
+    </div>
+    <button [disabled]="form.invalid">Mettre à jour</button>
+</form>

@@ -9,6 +9,7 @@ import { ContactNavComponent } from './contact-nav/contact-nav.component';
 import { ContactNewFormComponent } from './contact-new-form/contact-new-form.component';
 import { ContactReactiveFormComponent } from './contact-reactive-form/contact-reactive-form.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { ContactEditComponent } from './contact-edit/contact-edit.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
     ContactNavComponent,
     ContactNewFormComponent,
     ContactReactiveFormComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    ContactEditComponent
   ],
   imports: [
     BrowserModule,
