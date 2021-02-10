@@ -2,8 +2,11 @@
 
 <nav>
     <ul>
-        <li><a routerLink="/">Accueil</a></li>
-        <li><a routerLink="/nouveau">Nouveau</a></li>
+        <li><a routerLink="/" routerLinkActive="active" 
+            [routerLinkActiveOptions]="{exact: true}">
+            Accueil
+        </a></li>
+        <li><a routerLink="/nouveau" routerLinkActive="active">Nouveau</a></li>
     </ul>
 </nav>
 
