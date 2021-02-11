@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ContactListService {
-  data: Contact[] = [];
+  data: Map<number, Contact> = new Map();
 
   constructor(private http: HttpClient) {
     setTimeout(() => {
@@ -16,26 +16,31 @@ export class ContactListService {
 
   private fetch(): void {
     this.http.get<Contact[]>('assets/contacts.json').subscribe(
-      (contacts) => {
-        this.data.push(...contacts);
+      contacts => {
+        contacts.forEach((contact: Contact) => {
+          this.data.set(contact.id as number, contact);
+        });
       }
     );
   }
 
-  find(id: number): Contact {
-    return this.data[id - 1];
+  find(id: number): Contact|undefined {
+    return this.data.get(id);
   }
 
-  findAll(): Contact[] {
-    return this.data;
+  findAll(): Iterable<Contact> {
+    return this.data.values();
   }
 
   add(contact: Contact): void {
-    contact.id = this.data.length + 1;
-    this.data.push(contact);
+    if (!contact.id) {
+      contact.id = this.data.size + 1;
+    }
+    
+    this.data.set(contact.id, contact);
   }
 
   update(id: number, contact: Contact): void {
-    this.data[id - 1] = contact;
+    this.data.set(id, contact);
   }
 }

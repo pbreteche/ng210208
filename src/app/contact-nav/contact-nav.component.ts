@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./contact-nav.component.scss']
 })
 export class ContactNavComponent {
-  contacts: Contact[] = this.contactList.findAll();
+  contacts: Iterable<Contact> = this.contactList.findAll();
 
   constructor(private contactList: ContactListService) {}
 }
