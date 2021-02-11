@@ -1,6 +1,5 @@
 import { ContactListService } from './../contact-list.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CONTACTS } from './../../data/contacts';
 import { Contact } from './../../model/contact';
 import { Component, OnInit } from '@angular/core';
 

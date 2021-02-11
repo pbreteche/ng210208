@@ -2,6 +2,7 @@ import { RoutingModule } from './routing/routing.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { ContactDetailComponent } from './contact-detail/contact-detail.component';
@@ -27,7 +28,8 @@ import { ContactReaciveEditComponent } from './contact-reacive-edit/contact-reac
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    RoutingModule
+    RoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

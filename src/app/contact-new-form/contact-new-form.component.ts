@@ -1,5 +1,4 @@
 import { ContactListService } from './../contact-list.service';
-import { CONTACTS } from './../../data/contacts';
 import { Contact } from './../../model/contact';
 import { Component } from '@angular/core';
 
