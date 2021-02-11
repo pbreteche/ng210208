@@ -1,7 +1,7 @@
 <article *ngIf="contact; else contactNotFound">
-    <h2>{{ contact.name }}</h2>
-    <p>{{ contact.email }}</p>
-    <p><a [routerLink]="['/edit', contact.id]">Éditer</a></p>
+    <h2>{{ (contact | async)?.name }}</h2>
+    <p>{{ (contact | async)?.email }}</p>
+    <p><a [routerLink]="['/edit', (contact | async)?.id]">Éditer</a></p>
 </article>
 
 <ng-template #contactNotFound>

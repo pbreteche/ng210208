@@ -29,7 +29,12 @@ export class ContactReaciveEditComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe(map => {
       this.id = +(map.get('id') || 1);
-      this.editForm.reset(this.contactList.find(this.id));
+
+      this.contactList.one(this.id).subscribe(
+        c => {
+          this.editForm.reset(c)
+        }
+      );
     });
   }
 

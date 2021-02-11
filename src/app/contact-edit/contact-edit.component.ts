@@ -21,7 +21,11 @@ export class ContactEditComponent implements OnInit{
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe(map => {
       const id = +(map.get('id') || 1);
-      this.contact = Object.assign({}, this.contactList.find(id));
+      this.contactList.one(id).subscribe(
+        c => {
+          this.contact = Object.assign({}, c)
+        }
+      );
     });
   }
 

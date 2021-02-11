@@ -2,6 +2,7 @@ import { ContactListService } from './../contact-list.service';
 import { Contact } from './../../model/contact';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-contact-detail',
@@ -9,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./contact-detail.component.scss']
 })
 export class ContactDetailComponent implements OnInit {
-  contact: Contact|undefined;
+  contact: Observable<Contact|undefined>|undefined;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -19,7 +20,7 @@ export class ContactDetailComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe(map => {
       const id = +(map.get('id') || 1);
-      this.contact = this.contactList.find(id);
+      this.contact = this.contactList.one(id);
     });
   }
 }
