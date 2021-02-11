@@ -7,7 +7,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', component: ContactNavComponent },
+  { path: '', redirectTo: 'list', pathMatch: 'full' },
+  { path: 'list', component: ContactNavComponent },
   { path: 'nouveau', component: ContactNewFormComponent },
   { path: 'detail/:id', component: ContactDetailComponent },
   { path: 'edit/:id', component: ContactReaciveEditComponent },
