@@ -10,7 +10,7 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   { path: '', redirectTo: 'list', pathMatch: 'full' },
   { path: 'list', component: ContactNavComponent },
-  { path: 'nouveau', component: ContactReactiveFormComponent },
+  { path: 'nouveau', component: ContactNewFormComponent },
   { path: 'detail/:id', component: ContactDetailComponent },
   { path: 'edit/:id', component: ContactReaciveEditComponent },
   { path: '**', component: NotFoundComponent},

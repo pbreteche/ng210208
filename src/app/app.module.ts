@@ -12,6 +12,7 @@ import { ContactReactiveFormComponent } from './contact-reactive-form/contact-re
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ContactEditComponent } from './contact-edit/contact-edit.component';
 import { ContactReaciveEditComponent } from './contact-reacive-edit/contact-reacive-edit.component';
+import { AlphanumericValidatorDirective } from './alphanumeric-validator.directive';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ContactReaciveEditComponent } from './contact-reacive-edit/contact-reac
     ContactReactiveFormComponent,
     NotFoundComponent,
     ContactEditComponent,
-    ContactReaciveEditComponent
+    ContactReaciveEditComponent,
+    AlphanumericValidatorDirective
   ],
   imports: [
     BrowserModule,

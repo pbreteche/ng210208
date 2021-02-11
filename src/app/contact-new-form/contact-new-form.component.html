@@ -5,7 +5,7 @@
         </p>
         <label for="new-contact-name">Nom</label>
         <input name="name" id="new-contact-name" [(ngModel)]="newContact.name" 
-            #nameModel="ngModel" required>
+            #nameModel="ngModel" required appAlphanumericValidator>
     </div>
     <div>
         <p class="error" [hidden]="!emailModel.errors?.required || emailModel.untouched">
