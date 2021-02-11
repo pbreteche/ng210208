@@ -1,12 +1,14 @@
 import { Contact } from './../model/contact';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ContactListService {
-  data: Map<number, Contact> = new Map();
+  private data = new Map<number, Contact>();
+  private subject = new BehaviorSubject<Iterable<Contact>>([]);
 
   constructor(private http: HttpClient) {
     setTimeout(() => {
@@ -20,8 +22,13 @@ export class ContactListService {
         contacts.forEach((contact: Contact) => {
           this.data.set(contact.id as number, contact);
         });
+        this.nextAll()
       }
     );
+  }
+
+  all(): Observable<Iterable<Contact>> {
+    return this.subject.asObservable();
   }
 
   find(id: number): Contact|undefined {
@@ -38,9 +45,16 @@ export class ContactListService {
     }
     
     this.data.set(contact.id, contact);
+    this.nextAll()
   }
 
   update(id: number, contact: Contact): void {
     this.data.set(id, contact);
+    this.nextAll()
+  }
+
+  private nextAll() {
+    // wrap into Array as template engine does not refresh with base iterable
+    this.subject.next(Array.from(this.data.values()));
   }
 }

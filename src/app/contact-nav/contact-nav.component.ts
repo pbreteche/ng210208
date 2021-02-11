@@ -1,6 +1,7 @@
 import { ContactListService } from './../contact-list.service';
 import { Contact } from './../../model/contact';
 import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-contact-nav',
@@ -8,7 +9,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./contact-nav.component.scss']
 })
 export class ContactNavComponent {
-  contacts: Iterable<Contact> = this.contactList.findAll();
+  contacts: Observable<Iterable<Contact>> = this.contactList.all();
 
-  constructor(private contactList: ContactListService) {}
+  syncContacts: Iterable<Contact> = [];
+
+  constructor(private contactList: ContactListService) {
+  }
 }
