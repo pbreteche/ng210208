@@ -1,5 +1,5 @@
 <ul>
-    <li *ngFor="let contact of contacts | async">
+    <li *ngFor="let contact of contacts | async; trackBy: trackById">
       <a [routerLink]="['detail', contact.id]">{{ contact.name }}</a>
     </li>
 </ul>

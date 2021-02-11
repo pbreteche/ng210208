@@ -11,8 +11,10 @@ import { Observable } from 'rxjs';
 export class ContactNavComponent {
   contacts: Observable<Iterable<Contact>> = this.contactList.all();
 
-  syncContacts: Iterable<Contact> = [];
-
   constructor(private contactList: ContactListService) {
+  }
+
+  trackById(index: number, item: Contact) {
+    return item.id;
   }
 }
