@@ -62,8 +62,16 @@ export class ContactListService {
   }
 
   update(id: number, contact: Contact): void {
-    this.data.set(id, contact);
-    this.nextAll()
+    this.http.put('assets/contacts.json/'+id, contact).pipe(
+      catchError(error => {
+        console.error('HTTP error: ' + error.status);
+        console.error(error);
+        return throwError('HTTP server error');
+      })
+    ).subscribe(() => {
+      this.data.set(id, contact);
+      this.nextAll()
+    })
   }
 
   private nextAll() {
