@@ -1,8 +1,8 @@
 import { Contact } from './../model/contact';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { BehaviorSubject, Observable, throwError } from 'rxjs';
+import { map, catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -49,12 +49,16 @@ export class ContactListService {
   }
 
   add(contact: Contact): void {
-    if (!contact.id) {
-      contact.id = this.data.size + 1;
-    }
-    
-    this.data.set(contact.id, contact);
-    this.nextAll()
+    this.http.post('assets/contacts.json', contact).pipe(
+      catchError(error => {
+        console.error('HTTP error: ' + error.status);
+        console.error(error);
+        return throwError('HTTP server error');
+      })
+    ).subscribe(() => {
+      this.data.set(contact.id as number, contact);
+      this.nextAll()
+    })
   }
 
   update(id: number, contact: Contact): void {
