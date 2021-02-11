@@ -1,7 +1,13 @@
 <form [formGroup]="createForm" (ngSubmit)="add()">
     <div>
-        <p class="error" [hidden]="name?.valid || name?.untouched">
+        <p class="error" [hidden]="!name?.errors?.required|| name?.untouched">
             Merci de saisir un nom de contact
+        </p>
+        <p class="error" [hidden]="!name?.errors?.alphanumeric || name?.untouched">
+            Merci d'utiliser uniquement des lettres (avec ou sans accents)
+        </p>
+        <p class="error" [hidden]="!name?.errors?.min || name?.untouched">
+            Votre nom doit comporter au moins 5 caractères
         </p>
         <label for="new-contact-name">Nom</label>
         <input name="name" id="new-contact-name" required formControlName="name">

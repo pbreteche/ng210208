@@ -1,3 +1,4 @@
+import { Validators as MyValidators } from './../validators';
 import { ContactListService } from './../contact-list.service';
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms';
@@ -10,7 +11,9 @@ import { FormGroup, FormControl, Validators, AbstractControl } from '@angular/fo
 export class ContactReactiveFormComponent {
   createForm = new FormGroup({
     name: new FormControl('', [
-      Validators.required
+      Validators.required,
+      MyValidators.alphanumeric,
+      MyValidators.min(5)
     ]),
     email: new FormControl('', [
       Validators.required,
