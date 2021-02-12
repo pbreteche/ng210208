@@ -13,6 +13,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { ContactEditComponent } from './contact-edit/contact-edit.component';
 import { ContactReaciveEditComponent } from './contact-reacive-edit/contact-reacive-edit.component';
 import { AlphanumericValidatorDirective } from './alphanumeric-validator.directive';
+import { MinValidatorDirective } from './min-validator.directive';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { AlphanumericValidatorDirective } from './alphanumeric-validator.directi
     NotFoundComponent,
     ContactEditComponent,
     ContactReaciveEditComponent,
-    AlphanumericValidatorDirective
+    AlphanumericValidatorDirective,
+    MinValidatorDirective
   ],
   imports: [
     BrowserModule,

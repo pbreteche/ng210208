@@ -1,11 +1,19 @@
 <form (ngSubmit)="add(); form.reset()" #form="ngForm">
     <div>
-        <p class="error" [hidden]="nameModel.valid || nameModel.untouched">
-            Merci de saisir un nom de contact
-        </p>
+        <div class="error" [hidden]="nameModel.valid || nameModel.untouched">
+            <p [hidden]="!nameModel.errors?.required">
+                Merci de saisir un nom de contact
+            </p>
+            <p [hidden]="!nameModel.errors?.alphanumeric">
+                Merci d'utiliser des caractères alphanumérique
+            </p>
+            <p [hidden]="!nameModel.errors?.min">
+                Votre nom doit comporter au minimum 3 caractères
+            </p>
+        </div>
         <label for="new-contact-name">Nom</label>
         <input name="name" id="new-contact-name" [(ngModel)]="newContact.name" 
-            #nameModel="ngModel" required appAlphanumericValidator>
+            #nameModel="ngModel" required appAlphanumericValidator appMinValidator="3">
     </div>
     <div>
         <p class="error" [hidden]="!emailModel.errors?.required || emailModel.untouched">
