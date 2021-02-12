@@ -1,5 +1,6 @@
+import { API_URL } from './app.module';
 import { Contact } from './../model/contact';
-import { Injectable } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable, throwError } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
@@ -11,14 +12,17 @@ export class ContactListService {
   private data = new Map<number, Contact>();
   private subject = new BehaviorSubject<Array<Contact>>([]);
 
-  constructor(private http: HttpClient) {
+  constructor(
+    private http: HttpClient,
+    @Inject(API_URL) private url: string
+  ) {
     setTimeout(() => {
       this.fetch();
     }, 500); 
   }
 
   private fetch(): void {
-    this.http.get<Contact[]>('assets/contacts.json').subscribe(
+    this.http.get<Contact[]>(this.url).subscribe(
       contacts => {
         contacts.forEach((contact: Contact) => {
           this.data.set(contact.id as number, contact);

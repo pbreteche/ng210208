@@ -1,5 +1,5 @@
 import { RoutingModule } from './routing/routing.module';
-import { NgModule } from '@angular/core';
+import { NgModule, InjectionToken } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -16,6 +16,8 @@ import { AlphanumericValidatorDirective } from './alphanumeric-validator.directi
 import { MinValidatorDirective } from './min-validator.directive';
 import { EmailPartPipe } from './email-part.pipe';
 import { LoginComponent } from './login/login.component';
+
+export const API_URL = new InjectionToken('app.api-url');
 
 @NgModule({
   declarations: [
@@ -39,7 +41,9 @@ import { LoginComponent } from './login/login.component';
     RoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    { provide: API_URL, useValue: 'assets/contacts.json' },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
