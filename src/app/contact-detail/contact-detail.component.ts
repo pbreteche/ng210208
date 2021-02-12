@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./contact-detail.component.scss']
 })
 export class ContactDetailComponent implements OnInit {
-  contact: Observable<Contact|undefined>|undefined;
+  contact$: Observable<Contact|undefined>|undefined;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -20,7 +20,7 @@ export class ContactDetailComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe(map => {
       const id = +(map.get('id') || 1);
-      this.contact = this.contactList.one(id);
+      this.contact$ = this.contactList.one(id);
     });
   }
 }
