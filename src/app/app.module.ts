@@ -15,6 +15,7 @@ import { ContactReaciveEditComponent } from './contact-reacive-edit/contact-reac
 import { AlphanumericValidatorDirective } from './alphanumeric-validator.directive';
 import { MinValidatorDirective } from './min-validator.directive';
 import { EmailPartPipe } from './email-part.pipe';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { EmailPartPipe } from './email-part.pipe';
     ContactReaciveEditComponent,
     AlphanumericValidatorDirective,
     MinValidatorDirective,
-    EmailPartPipe
+    EmailPartPipe,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

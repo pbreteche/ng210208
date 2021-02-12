@@ -1,0 +1,8 @@
+<div *ngIf="!currentUser; else logoutTemplate">
+    <input type="text" [(ngModel)]="username">
+    <button (click)="login()">Se connecter</button>
+</div>
+
+<ng-template #logoutTemplate>
+    <p>{{ currentUser }} <button (click)="logout()">Se déconnecter</button></p>
+</ng-template>
